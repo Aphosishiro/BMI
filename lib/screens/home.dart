@@ -19,31 +19,38 @@ class _HomeState extends State<Home> {
       ),
       body: const Column(
         children: [
-          Row(
-            children: [
-              ReuseableCard(
-                color: Colors.black,
-              ),
-              ReuseableCard(
-                color: Colors.black,
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                ReuseableCard(
+                  color: Colors.black,
+                ),
+                ReuseableCard(
+                  color: Colors.black,
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              ReuseableCard(color: Colors.black),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                ReuseableCard(color: Colors.black),
+              ],
+            ),
           ),
-          Row(
-            children: [
-              ReuseableCard(
-                color: Colors.black,
-              ),
-              ReuseableCard(
-                color: Colors.black,
-              ),
-            ],
+          Expanded(
+            child: Row(
+              children: [
+                ReuseableCard(
+                  color: Colors.black,
+                ),
+                ReuseableCard(
+                  color: Colors.black,
+                ),
+              ],
+            ),
           ),
+         
         ],
       ),
     );
