@@ -22,35 +22,26 @@ class _HomeState extends State<Home> {
           Expanded(
             child: Row(
               children: [
-                ReuseableCard(
-                  color: Colors.black,
-                ),
-                ReuseableCard(
-                  color: Colors.black,
-                ),
+                ReuseableCard(color: Color(0xFF1D1E33)),
+                ReuseableCard(color: Color(0xFF1D1E33)),
               ],
             ),
           ),
           Expanded(
             child: Row(
               children: [
-                ReuseableCard(color: Colors.black),
+                ReuseableCard(color: Color(0xFF1D1E33)),
               ],
             ),
           ),
           Expanded(
             child: Row(
               children: [
-                ReuseableCard(
-                  color: Colors.black,
-                ),
-                ReuseableCard(
-                  color: Colors.black,
-                ),
+                ReuseableCard(color: Color(0xFF1D1E33)),
+                ReuseableCard(color: Color(0xFF1D1E33)),
               ],
             ),
           ),
-         
         ],
       ),
     );
