@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'iconcontent.dart';
 
 const activeCardColor = Color(0xFF1D1E33);
+const inActiveCardColor = Color(0xFF111328);
 const bottomContainerColor = Color(0xFFEB1555);
 
 class Home extends StatefulWidget {
@@ -14,6 +15,28 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Color maleCardColor = inActiveCardColor;
+  Color femaleCardColor = inActiveCardColor;
+
+  void updateCardColor(int gender) {
+    if (gender == 1) {
+      if (maleCardColor == inActiveCardColor) {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inActiveCardColor;
+      } else {
+        maleCardColor = inActiveCardColor;
+      }
+    }
+    if (gender == 2) {
+      if (femaleCardColor == inActiveCardColor) {
+        femaleCardColor = activeCardColor;
+        maleCardColor = inActiveCardColor;
+      } else {
+        femaleCardColor = inActiveCardColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -28,21 +51,39 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: [
-          const Expanded(
+          Expanded(
             child: Row(
               children: [
-                ReuseableCard(
-                  color: activeCardColor,
-                  cardChild: Iconcontent(
-                    iconData: FontAwesomeIcons.mars,
-                    label: "MALE",
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateCardColor(1);
+                      });
+                    },
+                    child: ReuseableCard(
+                      color: maleCardColor,
+                      cardChild: const Iconcontent(
+                        iconData: FontAwesomeIcons.mars,
+                        label: "MALE",
+                      ),
+                    ),
                   ),
                 ),
-                ReuseableCard(
-                  color: activeCardColor,
-                  cardChild: Iconcontent(
-                    iconData: FontAwesomeIcons.venus,
-                    label: "FEMALE",
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        updateCardColor(2);
+                      });
+                    },
+                    child: ReuseableCard(
+                      color: femaleCardColor,
+                      cardChild: const Iconcontent(
+                        iconData: FontAwesomeIcons.venus,
+                        label: "FEMALE",
+                      ),
+                    ),
                   ),
                 ),
               ],
@@ -51,9 +92,11 @@ class _HomeState extends State<Home> {
           const Expanded(
             child: Row(
               children: [
-                ReuseableCard(
-                  color: activeCardColor,
-                  cardChild: Column(),
+                Expanded(
+                  child: ReuseableCard(
+                    color: activeCardColor,
+                    cardChild: Column(),
+                  ),
                 ),
               ],
             ),
@@ -61,13 +104,17 @@ class _HomeState extends State<Home> {
           const Expanded(
             child: Row(
               children: [
-                ReuseableCard(
-                  color: activeCardColor,
-                  cardChild: Column(),
+                Expanded(
+                  child: ReuseableCard(
+                    color: activeCardColor,
+                    cardChild: Column(),
+                  ),
                 ),
-                ReuseableCard(
-                  color: activeCardColor,
-                  cardChild: Column(),
+                Expanded(
+                  child: ReuseableCard(
+                    color: activeCardColor,
+                    cardChild: Column(),
+                  ),
                 ),
               ],
             ),
