@@ -7,6 +7,8 @@ const activeCardColor = Color(0xFF1D1E33);
 const inActiveCardColor = Color(0xFF111328);
 const bottomContainerColor = Color(0xFFEB1555);
 
+enum Gender { male, female, none }
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -15,27 +17,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Color maleCardColor = inActiveCardColor;
-  Color femaleCardColor = inActiveCardColor;
 
-  void updateCardColor(int gender) {
-    if (gender == 1) {
-      if (maleCardColor == inActiveCardColor) {
-        maleCardColor = activeCardColor;
-        femaleCardColor = inActiveCardColor;
-      } else {
-        maleCardColor = inActiveCardColor;
-      }
-    }
-    if (gender == 2) {
-      if (femaleCardColor == inActiveCardColor) {
-        femaleCardColor = activeCardColor;
-        maleCardColor = inActiveCardColor;
-      } else {
-        femaleCardColor = inActiveCardColor;
-      }
-    }
-  }
+  Gender selectedGender = Gender.none;
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +41,13 @@ class _HomeState extends State<Home> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateCardColor(1);
+                        selectedGender = Gender.male;
                       });
                     },
                     child: ReuseableCard(
-                      color: maleCardColor,
+                      color: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inActiveCardColor,
                       cardChild: const Iconcontent(
                         iconData: FontAwesomeIcons.mars,
                         label: "MALE",
@@ -74,11 +59,13 @@ class _HomeState extends State<Home> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateCardColor(2);
+                        selectedGender = Gender.female;
                       });
                     },
                     child: ReuseableCard(
-                      color: femaleCardColor,
+                      color: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inActiveCardColor,
                       cardChild: const Iconcontent(
                         iconData: FontAwesomeIcons.venus,
                         label: "FEMALE",
@@ -127,9 +114,7 @@ class _HomeState extends State<Home> {
             child: const Center(
               child: Text(
                 "Calculate",
-                style: TextStyle(
-                  fontSize: 20,
-                ),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
               ),
             ),
           ),
