@@ -38,69 +38,68 @@ class _HomeState extends State<Home> {
             child: Row(
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReuseableCard(
+                    onPress: () {
                       setState(() {
-                        selectedGender = Gender.male;
-                      });
+                      selectedGender = Gender.male;
+                    });
                     },
-                    child: ReuseableCard(
-                      color: selectedGender == Gender.male
-                          ? activeCardColor
-                          : inActiveCardColor,
-                      cardChild: const Iconcontent(
-                        iconData: FontAwesomeIcons.mars,
-                        label: "MALE",
-                      ),
+                    color: selectedGender == Gender.male
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    cardChild: const Iconcontent(
+                      iconData: FontAwesomeIcons.mars,
+                      label: "MALE",
                     ),
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: ReuseableCard(
+                    onPress: () {
                       setState(() {
-                        selectedGender = Gender.female;
-                      });
+                      selectedGender = Gender.female;
+                    });
                     },
-                    child: ReuseableCard(
-                      color: selectedGender == Gender.female
-                          ? activeCardColor
-                          : inActiveCardColor,
-                      cardChild: const Iconcontent(
-                        iconData: FontAwesomeIcons.venus,
-                        label: "FEMALE",
-                      ),
+                    color: selectedGender == Gender.female
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    cardChild: const Iconcontent(
+                      iconData: FontAwesomeIcons.venus,
+                      label: "FEMALE",
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          const Expanded(
+           Expanded(
             child: Row(
               children: [
                 Expanded(
                   child: ReuseableCard(
+                    onPress: () {},
                     color: activeCardColor,
-                    cardChild: Column(),
+                    cardChild: const Column(),
                   ),
                 ),
               ],
             ),
           ),
-          const Expanded(
+           Expanded(
             child: Row(
               children: [
                 Expanded(
                   child: ReuseableCard(
+                    onPress: () {},
                     color: activeCardColor,
-                    cardChild: Column(),
+                    cardChild: const Column(),
                   ),
                 ),
                 Expanded(
                   child: ReuseableCard(
+                    onPress: () {},
                     color: activeCardColor,
-                    cardChild: Column(),
+                    cardChild: const Column(),
                   ),
                 ),
               ],
