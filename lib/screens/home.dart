@@ -1,11 +1,10 @@
 import 'package:bmi_calculator/screens/reusablecard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../shared/constant.dart';
 import 'iconcontent.dart';
 
-const activeCardColor = Color(0xFF1D1E33);
-const inActiveCardColor = Color(0xFF111328);
-const bottomContainerColor = Color(0xFFEB1555);
+
 
 enum Gender { male, female, none }
 
@@ -45,8 +44,8 @@ class _HomeState extends State<Home> {
                     });
                     },
                     color: selectedGender == Gender.male
-                        ? activeCardColor
-                        : inActiveCardColor,
+                        ? kActiveCardColor
+                        : kInActiveCardColor,
                     cardChild: const Iconcontent(
                       iconData: FontAwesomeIcons.mars,
                       label: "MALE",
@@ -61,8 +60,8 @@ class _HomeState extends State<Home> {
                     });
                     },
                     color: selectedGender == Gender.female
-                        ? activeCardColor
-                        : inActiveCardColor,
+                        ? kActiveCardColor
+                        : kInActiveCardColor,
                     cardChild: const Iconcontent(
                       iconData: FontAwesomeIcons.venus,
                       label: "FEMALE",
@@ -78,7 +77,7 @@ class _HomeState extends State<Home> {
                 Expanded(
                   child: ReuseableCard(
                     onPress: () {},
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                     cardChild: const Column(),
                   ),
                 ),
@@ -91,14 +90,14 @@ class _HomeState extends State<Home> {
                 Expanded(
                   child: ReuseableCard(
                     onPress: () {},
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                     cardChild: const Column(),
                   ),
                 ),
                 Expanded(
                   child: ReuseableCard(
                     onPress: () {},
-                    color: activeCardColor,
+                    color: kActiveCardColor,
                     cardChild: const Column(),
                   ),
                 ),
@@ -109,7 +108,7 @@ class _HomeState extends State<Home> {
             margin: EdgeInsets.only(top: size.height * 0.01),
             height: bottomContainerHeight,
             width: double.infinity,
-            color: bottomContainerColor,
+            color: kBottomContainerColor,
             child: const Center(
               child: Text(
                 "Calculate",
