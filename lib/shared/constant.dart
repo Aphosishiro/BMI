@@ -7,3 +7,8 @@ const kBottomContainerColor = Color(0xFFEB1555);
 TextStyle kLabelText = const TextStyle(
   fontSize: 15,
 );
+
+TextStyle kLabelBoldText = const TextStyle(
+  fontSize: 40,
+  fontWeight: FontWeight.bold,
+);

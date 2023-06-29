@@ -1,10 +1,8 @@
-import 'package:bmi_calculator/screens/reusablecard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../shared/constant.dart';
-import 'iconcontent.dart';
-
-
+import '../widgets/iconcontent.dart';
+import '../widgets/reusablecard.dart';
 
 enum Gender { male, female, none }
 
@@ -16,7 +14,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   Gender selectedGender = Gender.none;
 
   @override
@@ -40,8 +37,8 @@ class _HomeState extends State<Home> {
                   child: ReuseableCard(
                     onPress: () {
                       setState(() {
-                      selectedGender = Gender.male;
-                    });
+                        selectedGender = Gender.male;
+                      });
                     },
                     color: selectedGender == Gender.male
                         ? kActiveCardColor
@@ -56,8 +53,8 @@ class _HomeState extends State<Home> {
                   child: ReuseableCard(
                     onPress: () {
                       setState(() {
-                      selectedGender = Gender.female;
-                    });
+                        selectedGender = Gender.female;
+                      });
                     },
                     color: selectedGender == Gender.female
                         ? kActiveCardColor
@@ -71,20 +68,43 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-           Expanded(
+          Expanded(
             child: Row(
               children: [
                 Expanded(
                   child: ReuseableCard(
                     onPress: () {},
                     color: kActiveCardColor,
-                    cardChild: const Column(),
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "HEIGHT",
+                          style: kLabelText,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Text(
+                              "180",
+                              style: kLabelBoldText,
+                            ),
+                            Text(
+                              "CM",
+                              style: kLabelText,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-           Expanded(
+          Expanded(
             child: Row(
               children: [
                 Expanded(
