@@ -16,6 +16,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   Gender selectedGender = Gender.none;
 
+  int height = 150;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -88,7 +90,7 @@ class _HomeState extends State<Home> {
                           textBaseline: TextBaseline.alphabetic,
                           children: [
                             Text(
-                              "180",
+                              height.toString(),
                               style: kLabelBoldText,
                             ),
                             Text(
@@ -96,7 +98,20 @@ class _HomeState extends State<Home> {
                               style: kLabelText,
                             )
                           ],
-                        )
+                        ),
+                        Slider(
+                          value: height.toDouble(),
+                          min: 120.0,
+                          max: 230.0,
+                          activeColor: const Color(0xFFEB1555),
+                          inactiveColor: const Color(0xFF8D8E98),
+                          //divisions: 10,
+                          onChanged: (double value) {
+                            setState(() {
+                              height = value.round();
+                            });
+                          },
+                        ),
                       ],
                     ),
                   ),
