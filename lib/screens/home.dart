@@ -103,9 +103,6 @@ class _HomeState extends State<Home> {
                           value: height.toDouble(),
                           min: 120.0,
                           max: 230.0,
-                          activeColor: const Color(0xFFEB1555),
-                          inactiveColor: const Color(0xFF8D8E98),
-                          //divisions: 10,
                           onChanged: (double value) {
                             setState(() {
                               height = value.round();
