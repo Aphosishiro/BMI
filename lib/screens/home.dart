@@ -18,6 +18,8 @@ class _HomeState extends State<Home> {
 
   int height = 150;
 
+  int weight = 80;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -123,7 +125,28 @@ class _HomeState extends State<Home> {
                   child: ReuseableCard(
                     onPress: () {},
                     color: kActiveCardColor,
-                    cardChild: const Column(),
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "WEIGHT",
+                          style: kLabelText,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kLabelBoldText,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundedButtons(),
+                            FloatingActionButton(
+                              onPressed: () {},
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
@@ -150,6 +173,19 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class RoundedButtons extends StatelessWidget {
+  const RoundedButtons({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: () {},
+      shape: CircleBorder(),
+      fillColor: Color(0xFF111328),
     );
   }
 }

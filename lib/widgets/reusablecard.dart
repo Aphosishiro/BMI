@@ -6,7 +6,7 @@ class ReuseableCard extends StatelessWidget {
 
   final Color color;
   final Widget cardChild;
-  final VoidCallback onPress;
+  final VoidCallback onPress; //find a way to make the onpress optional and not required
 
   @override
   Widget build(BuildContext context) {
