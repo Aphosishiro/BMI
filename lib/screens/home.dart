@@ -139,7 +139,7 @@ class _HomeState extends State<Home> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundedButtons(),
+                            const RoundedButtons(),
                             FloatingActionButton(
                               onPressed: () {},
                             )
@@ -184,8 +184,8 @@ class RoundedButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       onPressed: () {},
-      shape: CircleBorder(),
-      fillColor: Color(0xFF111328),
+      shape: const CircleBorder(),
+      fillColor: const Color(0xFF111328),
     );
   }
 }
