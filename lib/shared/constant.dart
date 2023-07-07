@@ -12,3 +12,25 @@ TextStyle kLabelBoldText = const TextStyle(
   fontSize: 40,
   fontWeight: FontWeight.bold,
 );
+
+TextStyle kLargeLabelText = const TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.w600,
+);
+
+TextStyle kResultText = const TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.normal,
+  color: Color(0xFF24d876),
+);
+
+TextStyle kBmiText = const TextStyle(
+  fontSize: 80,
+  fontWeight: FontWeight.bold,
+);
+
+TextStyle kBodyResultText = const TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.normal,
+  
+);

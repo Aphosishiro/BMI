@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../shared/constant.dart';
+import '../widgets/bottom_button.dart';
 import '../widgets/iconcontent.dart';
 import '../widgets/reusablecard.dart';
 import '../widgets/rouded_button.dart';
@@ -24,8 +25,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
-    final bottomContainerHeight = size.height * 0.08;
 
     return Scaffold(
       appBar: AppBar(
@@ -209,28 +208,15 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
+          BottomButton(
+            name: "Calculate",
+            ontap: () {
               Navigator.pushNamed(context, "/results");
             },
-            child: Container(
-              margin: EdgeInsets.only(top: size.height * 0.01),
-              height: bottomContainerHeight,
-              width: double.infinity,
-              color: kBottomContainerColor,
-              child: const Center(
-                child: Text(
-                  "Calculate",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
           ),
         ],
       ),
     );
   }
 }
+

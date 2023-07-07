@@ -12,24 +12,23 @@ class BmiCalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "BMI Calculator",
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color(0xFF0A0E21),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF0A0E21),
+        title: "BMI Calculator",
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: const Color(0xFF0A0E21),
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Color(0xFF0A0E21),
+          ),
+          sliderTheme: const SliderThemeData(
+            thumbColor: Color(0xFFEB1555),
+            activeTrackColor: Color(0xFFEB1555),
+            inactiveTrackColor: Color(0xFF8D8E98),
+            overlayColor: Color(0x26EB1555),
+          ),
         ),
-        sliderTheme: const SliderThemeData(
-          thumbColor: Color(0xFFEB1555),
-          activeTrackColor: Color(0xFFEB1555),
-          inactiveTrackColor: Color(0xFF8D8E98),
-          overlayColor: Color(0x26EB1555),
-        ),
-      ),
-      initialRoute: "/",
-      routes: {
-        "/": (context) => const Home(),
-        "/results":(context) => const ResultsScreen(),
-      }
-    );
+        initialRoute: "/",
+        routes: {
+          "/": (context) => const Home(),
+          "/results": (context) => const ResultsScreen(),
+        });
   }
 }
