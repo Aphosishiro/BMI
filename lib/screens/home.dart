@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../shared/constant.dart';
 import '../widgets/iconcontent.dart';
 import '../widgets/reusablecard.dart';
+import '../widgets/rouded_button.dart';
 
 enum Gender { male, female, none }
 
@@ -208,43 +209,28 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: size.height * 0.01),
-            height: bottomContainerHeight,
-            width: double.infinity,
-            color: kBottomContainerColor,
-            child: const Center(
-              child: Text(
-                "Calculate",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, "/results");
+            },
+            child: Container(
+              margin: EdgeInsets.only(top: size.height * 0.01),
+              height: bottomContainerHeight,
+              width: double.infinity,
+              color: kBottomContainerColor,
+              child: const Center(
+                child: Text(
+                  "Calculate",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
             ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundedButtons extends StatelessWidget {
-  const RoundedButtons(
-      {super.key, required this.icon, required this.onpressed});
-
-  final IconData icon;
-  final VoidCallback onpressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      constraints: const BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      elevation: 6.0,
-      onPressed: onpressed,
-      shape: const CircleBorder(),
-      fillColor: const Color(0xFF111328),
-      child: Icon(icon),
     );
   }
 }
