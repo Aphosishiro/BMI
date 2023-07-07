@@ -17,8 +17,8 @@ class _HomeState extends State<Home> {
   Gender selectedGender = Gender.none;
 
   int height = 150;
-
-  int weight = 80;
+  int weight = 60;
+  int age = 22;
 
   @override
   Widget build(BuildContext context) {
@@ -139,10 +139,25 @@ class _HomeState extends State<Home> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const RoundedButtons(),
-                            FloatingActionButton(
-                              onPressed: () {},
-                            )
+                            RoundedButtons(
+                              icon: FontAwesomeIcons.minus,
+                              onpressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: size.width * 0.02,
+                            ),
+                            RoundedButtons(
+                              icon: FontAwesomeIcons.plus,
+                              onpressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
                           ],
                         )
                       ],
@@ -153,7 +168,41 @@ class _HomeState extends State<Home> {
                   child: ReuseableCard(
                     onPress: () {},
                     color: kActiveCardColor,
-                    cardChild: const Column(),
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "AGE",
+                          style: kLabelText,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kLabelBoldText,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundedButtons(
+                                icon: FontAwesomeIcons.minus,
+                                onpressed: () {
+                                  setState(() {
+                                    age--;
+                                  });
+                                }),
+                            SizedBox(
+                              width: size.width * 0.02,
+                            ),
+                            RoundedButtons(
+                                icon: FontAwesomeIcons.plus,
+                                onpressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                }),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -178,14 +227,24 @@ class _HomeState extends State<Home> {
 }
 
 class RoundedButtons extends StatelessWidget {
-  const RoundedButtons({super.key});
+  const RoundedButtons(
+      {super.key, required this.icon, required this.onpressed});
+
+  final IconData icon;
+  final VoidCallback onpressed;
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: () {},
+      constraints: const BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      elevation: 6.0,
+      onPressed: onpressed,
       shape: const CircleBorder(),
       fillColor: const Color(0xFF111328),
+      child: Icon(icon),
     );
   }
 }
