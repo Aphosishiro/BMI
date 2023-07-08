@@ -1,3 +1,5 @@
+import 'package:bmi_calculator/models/calculator.dart';
+import 'package:bmi_calculator/screens/result.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../shared/constant.dart';
@@ -211,7 +213,18 @@ class _HomeState extends State<Home> {
           BottomButton(
             name: "Calculate",
             ontap: () {
-              Navigator.pushNamed(context, "/results");
+              Calculator calculation =
+                  Calculator(height: height, weight: weight);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsScreen(
+                    bmiValue: calculation.calulateBmi(),
+                    bmiInterpretation: calculation.getInterpretation(),
+                    bmiResults: calculation.getResults(),
+                  ),
+                ),
+              );
             },
           ),
         ],
@@ -219,4 +232,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-

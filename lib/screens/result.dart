@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 import '../widgets/bottom_button.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key});
+  const ResultsScreen({super.key, required this.bmiValue, required this.bmiInterpretation, required this.bmiResults});
+
+  final String bmiValue;
+  final String bmiResults;
+  final String bmiInterpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +39,15 @@ class ResultsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "Overweight",
+                   bmiResults,
                     style: kResultText,
                   ),
                   Text(
-                    "29.8",
+                    bmiValue,
                     style: kBmiText,
                   ),
                   Text(
-                    "Your BMI result is quite low comrade you suppose don chop",
+                    bmiInterpretation,
                     style: kBodyResultText,
                     textAlign: TextAlign.center,
                   ),

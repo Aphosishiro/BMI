@@ -1,4 +1,3 @@
-import 'package:bmi_calculator/screens/result.dart';
 import 'package:flutter/material.dart';
 import 'screens/home.dart';
 
@@ -25,10 +24,7 @@ class BmiCalculator extends StatelessWidget {
             overlayColor: Color(0x26EB1555),
           ),
         ),
-        initialRoute: "/",
-        routes: {
-          "/": (context) => const Home(),
-          "/results": (context) => const ResultsScreen(),
-        });
+        home: const Home(),
+        );
   }
 }
