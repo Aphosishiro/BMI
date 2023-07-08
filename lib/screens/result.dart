@@ -1,7 +1,6 @@
 import 'package:bmi_calculator/shared/constant.dart';
 import 'package:bmi_calculator/widgets/reusablecard.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/bottom_button.dart';
 
 class ResultsScreen extends StatelessWidget {
@@ -19,9 +18,12 @@ class ResultsScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Expanded(
-            child: Text(
-              "YOUR RESULTS",
-              style: kLabelBoldText,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                "YOUR RESULTS",
+                style: kLabelBoldText,
+              ),
             ),
           ),
           Expanded(
@@ -50,7 +52,9 @@ class ResultsScreen extends StatelessWidget {
             ),
           ),
           BottomButton(
-            ontap: () {},
+            ontap: () {
+              Navigator.pop(context);
+            },
             name: "Re-Calculate",
           )
         ],
